@@ -1,12 +1,13 @@
 import RPi.GPIO as GPIO
 import time
-from sense_hat import SenseHat
 
 GPIO.setmode(GPIO.BCM)
-LDR_PIN = 6 
+LDR_PIN = 6         
+LED_PIN = 17        
+THRESHOLD = 500000     
 
-sense = SenseHat()
-THRESHOLD = 500000
+# Setup LED pin
+GPIO.setup(LED_PIN, GPIO.OUT)
 
 def rc_time(pin):
     reading = 0
@@ -15,10 +16,10 @@ def rc_time(pin):
     GPIO.output(pin, False)
     time.sleep(0.1)
 
-    # Change the pin to input to measure charge time
+    # Set pin to input to measure charging time
     GPIO.setup(pin, GPIO.IN)
 
-    # Count until the pin goes HIGH (capacitor charged)
+    # Measure time until pin goes HIGH
     while GPIO.input(pin) == GPIO.LOW:
         reading += 1
 
@@ -27,15 +28,14 @@ def rc_time(pin):
 try:
     while True:
         light_level = rc_time(LDR_PIN)
-        print(f"Light level: {light_level}") # higher = darker
+        print(f"Light level: {light_level}") #higher = darker
 
         if light_level > THRESHOLD:
-            sense.clear((255, 255, 255))  # bright white light
+            GPIO.output(LED_PIN, GPIO.HIGH)  # Turn LED on
         else:
-            sense.clear()  # turn off LEDs
+            GPIO.output(LED_PIN, GPIO.LOW)   # Turn LED off
 
         time.sleep(1)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
-    sense.clear()
