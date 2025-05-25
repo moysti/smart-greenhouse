@@ -1,4 +1,4 @@
-import mqtt.client as mqtt
+import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 
 LED_PIN = 17
