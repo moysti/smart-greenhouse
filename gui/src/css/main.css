@@ -1,0 +1,228 @@
+body, html {
+    height: 100%;
+    overflow: hidden;
+    margin: 5px;
+    padding: 0;
+    background-color: #222831;
+    color: #EEEEEE;
+    font-family: Helvetica, sans-serif;
+}
+
+/* containers */
+.date-time {
+    width: 280px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+    background: #393E46;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.container-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 92px);
+    gap: 10px;
+    width: max-content;
+}
+
+.container {
+    width: 95px;
+    height: 85px;
+    display: flex;
+    position: relative;
+    justify-items: center;
+    background: #393E46;
+    border-radius: 5px;
+}
+
+.wide {
+    width: 194px;
+    grid-column: span 2;
+}
+
+/* date-time */
+
+.date-time .time {
+    display: flex;
+    align-self: center;
+    justify-content: left;
+    margin-left: 1%;
+}
+
+.date-time .date {
+    display: flex;
+    align-self: center;
+    justify-content: right;
+    margin-right: 1%;
+}
+
+/* temperature */
+
+.temperature-image {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 2px;
+}
+
+.temperature-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 150%;
+}
+
+/* air-moisture */
+
+.moisture-image {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 2px;
+}
+
+.moisture-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    width: 80px;
+    height: 20px;
+    margin-bottom: 3px;
+    align-self: center;
+    background: transparent;
+    border: 1px solid #FFD369;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    color: #FFD369;
+    font-weight: bold;
+    font-size: 70%;
+}
+
+button:hover {
+    background: #FFD369;
+    color: black;
+}
+
+/* statistics */
+.stats-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+}
+
+.stats-image:active {
+    animation: clickEffect 2s ease;
+}
+
+@keyframes clickEffect {
+    0% {
+        filter: brightness(0.7);
+        border-radius: 100%;
+    }
+    100% {
+        filter: none;
+        border-radius: 0;
+    }
+}
+
+/* tank */
+
+.tank-image {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 2px;
+}
+
+.tank-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 150%;
+}
+
+/* terminal */
+
+.terminal .img {
+    display: flex;
+    justify-self: left;
+    align-self: center;
+    margin-left: 50%;
+}
+
+.terminal .tank-level {
+    display: flex;
+    float: right;
+    justify-self: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 400%;
+}
+
+.terminal .button-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.terminal .button-container button {
+    width: 100%;
+    height: 15%;
+    margin-bottom: 5%;
+    background: transparent;
+    border: 2px solid #FFD369;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    color: #FFD369;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.terminal .button-container button:hover {
+    background: #FFD369;
+    color: black;
+}
+
+/* video */
+
+.stream {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+}
