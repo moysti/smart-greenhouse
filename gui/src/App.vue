@@ -13,14 +13,16 @@ export default {
   },
   data() {
     return {
-
+      video: true
     }
   },
   mounted() {
 
   },
   methods: {
-
+    toggleVideo(bool) {
+      this.video = bool;
+    }
   }
 }
 </script>
@@ -32,8 +34,8 @@ export default {
     <Humidity/>
     <Stats/>
     <Tank/>
-    <Video/>
-    <Terminal/>
+    <Video :video="this.video" />
+    <Terminal @toggle-video="(s) => this.toggleVideo(s)"/>
   </div>
 
 </template>

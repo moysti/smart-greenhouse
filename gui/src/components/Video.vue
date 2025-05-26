@@ -5,9 +5,11 @@
     components: {
       Container
     },
+    props: {
+      video: Boolean
+    },
     data() {
       return {
-
       }
     },
     mounted() {
@@ -27,12 +29,21 @@
               });
         }
       }
+    },
+    watch: {
+      video(newVal) {
+        if (!newVal) {
+          console.log('DISABLE STREAM');
+        } else {
+          console.log('ENABLE STREAM');
+        }
+      }
     }
   }
 </script>
 
 <template>
   <Container>
-    <video autoplay="true" id="stream" class="stream" controls poster="https://i.kym-cdn.com/photos/images/newsfeed/002/931/608/72e" width="300"></video>
+    <video autoplay id="stream" class="stream" controls poster="https://i.kym-cdn.com/photos/images/newsfeed/002/931/608/72e" width="300"></video>
   </Container>
 </template>
