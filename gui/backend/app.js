@@ -1,17 +1,19 @@
 const express = require('express');
 const mqtt = require('mqtt');
-const client = mqtt.connect('mqtt://192.168.0.177:1883');
-const app = express();
-
 const WebSocket = require('ws');
+const fs = require('fs');
+
+const app = express();
 const wss = new WebSocket.Server({ port: 8080 });
+//const client = mqtt.connect('mqtt://localhost:1883'); // DOCKER
+const client = mqtt.connect('mqtt://192.168.0.177:1883');   // LAPTOP
 
 app.use(express.json());
 
 client.on('connect', () => {
   console.log('Connected to MQTT broker');
 
-  client.subscribe(['temperature', 'humidity', 'light', 'tank', 'video'], (err) => {
+  client.subscribe(['temperature', 'humidity', 'tank', 'video'], (err) => {
     if (err) {
       console.error('Failed to subscribe:', err);
     } else {
@@ -54,11 +56,8 @@ client.on('message', (topic, message) => {
       });
       break;
     }
-    case 'light': {
-      console.log('Received light data JSON!');
-      break;
-    }
     case 'tank': {
+      console.log("received tank data")
       const payload = message.toString();
       wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
@@ -71,13 +70,20 @@ client.on('message', (topic, message) => {
       break;
     }
     case 'video': {
-      console.log('Received video data!');
+      //latestImage = message;
+      fs.writeFileSync('src/assets/received.jpg', message);
       break;
-    }
-    default: {
-      console.log('Received unknown data.')
     }
   }
 });
+
+/*
+setInterval(() => {
+  if (latestImage) {
+    fs.writeFileSync('src/assets/received.jpg', latestImage);
+    latestImage = null;
+  }
+}, 1000);
+*/
 
 module.exports = app;

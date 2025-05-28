@@ -8,7 +8,7 @@
     },
     data() {
       return {
-        level: 98
+        level: null
       }
     },
     mounted() {

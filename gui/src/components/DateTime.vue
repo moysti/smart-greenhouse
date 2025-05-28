@@ -10,8 +10,8 @@
       }
     },
     mounted() {
-      this.updateDateTime(); // Initial call
-      this.timer = setInterval(this.updateDateTime, 1000); // Update every second
+      this.updateDateTime();
+      this.timer = setInterval(this.updateDateTime, 1000);
     },
     methods: {
       updateDateTime() {

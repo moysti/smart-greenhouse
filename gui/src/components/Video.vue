@@ -44,6 +44,6 @@
 
 <template>
   <Container>
-    <video autoplay id="stream" class="stream" controls poster="https://i.kym-cdn.com/photos/images/newsfeed/002/931/608/72e" width="300"></video>
+    <img src="@/assets/received.jpg" alt="Video Stream" class="stream"/>
   </Container>
 </template>
