@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 
 MQTT_BROKER = "localhost"
 MQTT_TOPIC = "greenhouse/temp"
+MQTT_TOPIC2 = "greenhouse/humidity"
 
 sensor = adafruit_dht.DHT11(board.D22)
 
@@ -19,6 +20,8 @@ try:
 
             # send temperature as string
             client.publish(MQTT_TOPIC, str(temperature))
+            client.publish(MQTT_TOPIC2, str(humidity))
+
         except RuntimeError as e:
             print(f"DHT read error: {e.args[0]}")
         time.sleep(3)
