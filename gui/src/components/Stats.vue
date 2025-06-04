@@ -28,8 +28,10 @@ export default {
 
 <template>
   <Container>
-    <img class="stats-image" src="../assets/stats-image.png" alt="Statistics" @click="openStats()">
+    <!-- <img class="stats-image" src="../assets/stats-image.png" alt="Statistics" @click="openStats()"> -->
+    <img src="@/assets/pervasive.png" alt="placeholder" class="stats-image">
 
+    <!--
     <dialog id="stats-dialog" class="stats-dialog">
       <span class="close" @click="closeStats">x</span>
       <DateTime/>
@@ -53,5 +55,6 @@ export default {
         </div>
       </div>
     </dialog>
+    -->
   </Container>
 </template>

@@ -8,7 +8,7 @@
     },
     data() {
       return {
-        moisture: 63,
+        moisture: null,
       }
     },
     mounted() {

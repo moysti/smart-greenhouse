@@ -8,7 +8,7 @@
     },
     data() {
       return {
-        temp: 28,
+        temp: null,
       }
     },
     mounted() {

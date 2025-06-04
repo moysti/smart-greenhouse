@@ -10,12 +10,12 @@ body, html {
 
 /* containers */
 .date-time {
-    width: 280px;
-    height: 15px;
+    width: 1880px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     background: #393E46;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 10px;
     margin-bottom: 10px;
     font-weight: bold;
@@ -24,19 +24,19 @@ body, html {
 
 .container-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 92px);
-    gap: 10px;
+    grid-template-columns: repeat(3, 625px);
+    gap: 15px;
     width: max-content;
 }
 
 .container {
-    width: 95px;
-    height: 85px;
+    width: 620px;
+    height: 400px;
     display: flex;
     position: relative;
     justify-items: center;
     background: #393E46;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .wide {
@@ -51,6 +51,7 @@ body, html {
     align-self: center;
     justify-content: left;
     margin-left: 1%;
+    font-size: 250%;
 }
 
 .date-time .date {
@@ -58,16 +59,17 @@ body, html {
     align-self: center;
     justify-content: right;
     margin-right: 1%;
+    font-size: 250%;
 }
 
 /* temperature */
 
 .temperature-image {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 5px;
-    left: 2px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 10px;
 }
 
 .temperature-number {
@@ -76,17 +78,17 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 150%;
+    font-size: 500%;
 }
 
 /* air-moisture */
 
 .moisture-image {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 5px;
-    left: 2px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 10px;
 }
 
 .moisture-number {
@@ -95,7 +97,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 150%;
+    font-size: 500%;
 }
 
 .button-container {
@@ -131,23 +133,8 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-}
-
-.stats-image:active {
-    animation: clickEffect 2s ease;
-}
-
-@keyframes clickEffect {
-    0% {
-        filter: brightness(0.7);
-        border-radius: 100%;
-    }
-    100% {
-        filter: none;
-        border-radius: 0;
-    }
+    width: 250px;
+    height: 250px;
 }
 
 .stats-dialog {
@@ -218,10 +205,10 @@ button:hover {
 
 .tank-image {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 5px;
-    left: 2px;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 10px;
 }
 
 .tank-number {
@@ -230,7 +217,7 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 150%;
+    font-size: 500%;
 }
 
 /* terminal */
@@ -239,6 +226,7 @@ button:hover {
     position: absolute;
     width: 90%;
     height: 90%;
+    align-content: center;
 }
 
 .button-container button {
@@ -246,17 +234,27 @@ button:hover {
     width: 100%;
     height: 30%;
     background: transparent;
-    border: 1px solid #FFD369;
+    border: 3px solid #FFD369;
     cursor: pointer;
     transition: 0.3s;
     color: #FFD369;
     font-weight: bold;
-    font-size: 64%;
+    font-size: 300%;
 }
 
 .button-container button:hover {
     background: #FFD369;
     color: black;
+}
+
+.button-container .light-active {
+    background: #FFD369;
+    color: black;
+}
+
+.button-container .light-active:hover {
+    background: #393E46;
+    color: #FFD369;
 }
 
 /* video */
@@ -266,5 +264,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90px;
+    width: 600px;
+    height: 320px;
+    border: #FFD369;
 }

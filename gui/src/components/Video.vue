@@ -13,22 +13,10 @@
       }
     },
     mounted() {
-      this.getWebcam();
+
     },
     methods: {
-      getWebcam() {
-        const video = document.querySelector("#stream");
 
-        if (navigator.mediaDevices.getUserMedia) {
-          navigator.mediaDevices.getUserMedia({ video: true })
-              .then(function (stream) {
-                video.srcObject = stream;
-              })
-              .catch(function (error) {
-                console.log("Something went wrong getting webcam stream: " + error);
-              });
-        }
-      }
     },
     watch: {
       video(newVal) {
@@ -44,6 +32,7 @@
 
 <template>
   <Container>
-    <img src="@/assets/received.jpg" alt="Video Stream" class="stream"/>
+    <img src="@/assets/received.jpg" alt="Video Stream" class="stream" v-if="video"/>
+    <img src="@/assets/pervasive.png" alt="Video Disabled" class="stream" v-else="video"/>
   </Container>
 </template>

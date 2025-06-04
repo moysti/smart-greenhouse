@@ -14,7 +14,9 @@
     mounted() {
       socket.onmessage = (event) => {
         if (JSON.parse(event.data).type === 'tank') {
-          this.level = JSON.parse(event.data).data;
+          const height = 10;
+          let distance = JSON.parse(event.data).data;
+          this.level = ((height - distance) / height) * 100;
         }
       };
     },
