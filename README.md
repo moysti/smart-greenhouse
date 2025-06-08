@@ -23,7 +23,7 @@ This section will explain how to install and use the `Smart Greenhouse` Project,
 - First, clone the GitHub Repository
 
 ```
-git clone https://github.com/moysti/cannabis-zucht.git
+git clone https://github.com/moysti/smart-greenhouse.git
 ```
 
 ### Setup MQTT Broker
