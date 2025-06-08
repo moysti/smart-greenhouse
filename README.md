@@ -20,7 +20,7 @@ As part of the exercise class _“Embedded Systems and Pervasive Systems”_ , w
 
 This section will explain how to install and use the `Smart Greenhouse` Project, including all sensor-actuator pairs and the GUI.
 
-- First, clode the GitHub Repository
+- First, clone the GitHub Repository
 
 ```
 git clone https://github.com/moysti/cannabis-zucht.git
