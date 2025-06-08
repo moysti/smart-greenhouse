@@ -4,12 +4,15 @@ import paho.mqtt.client as mqtt
 FAN_PIN = 5
 THRESHOLD_TEMP = 26.6  # °C
 
+MQTT_BROKER = "localhost"
+MQTT_TOPIC = "greenhouse/temp"
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FAN_PIN, GPIO.OUT)
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT broker")
-    client.subscribe("greenhouse/temp")
+    client.subscribe(MQTT_TOPIC)
 
 def on_message(client, userdata, msg):
     try:
@@ -28,5 +31,5 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("localhost")
+client.connect(MQTT_BROKER)
 client.loop_forever()

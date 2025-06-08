@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 LDR_PIN = 6
-MQTT_BROKER = "192.168.2.138"  
+MQTT_BROKER = "localhost"  
 MQTT_TOPIC = "greenhouse/light"
 
 def rc_time(pin):

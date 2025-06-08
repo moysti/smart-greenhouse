@@ -3,6 +3,8 @@ import RPi.GPIO as GPIO
 
 LED_PIN = 17
 THRESHOLD = 500000
+
+MQTT_BROKER = "localhost"
 MQTT_TOPIC = "greenhouse/light"
 
 GPIO.setmode(GPIO.BCM)
@@ -26,7 +28,5 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("localhost") 
-
+client.connect(MQTT_BROKER) 
 client.loop_forever()
-
