@@ -49,13 +49,7 @@ const client = mqtt.connect("mqtt://YOUR_BROKER_IP:1883");
 
 ### GUI
 
-1. First thing you need to change the IP adress for your MQTT Broker aswell. This can be found under `gui/backend/app.js`. Here you need to change the first line with the actual MQTT Broker IP adress:
-
-```js
-const client = mqtt.connect("mqtt://*BROKER_IP*:1883");
-```
-
-2. Open your terminal and run following commands:
+1. Open your terminal and run following commands:
 
 ```bash
 cd gui
