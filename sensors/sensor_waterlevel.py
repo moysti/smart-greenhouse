@@ -17,10 +17,8 @@ GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 
 def distanz():
-    # setze Trigger auf HIGH
     GPIO.output(GPIO_TRIGGER, True)
 
-    # setze Trigger nach 0.01ms aus LOW
     time.sleep(0.00001)
     GPIO.output(GPIO_TRIGGER, False)
 
@@ -28,6 +26,7 @@ def distanz():
     StopZeit = time.time()
 
     while GPIO.input(GPIO_ECHO) == 0:
+        if StopZeit <= (StartZeit - 2) : return None
         StartZeit = time.time()
 
     while GPIO.input(GPIO_ECHO) == 1:
@@ -42,7 +41,7 @@ def distanz():
 
 while True:
     abstand = distanz()
-    print("Gemessene Entfernung = %.1f cm" % abstand)
-    client.publish(MQTT_TOPIC, str(abstand))
+    if abstand is not None:
+        print("Gemessene Entfernung = %.1f cm" % abstand)
+        client.publish(MQTT_TOPIC, str(abstand))
     time.sleep(1)
-
